@@ -1,0 +1,65 @@
+<!DOCTYPE >
+<html>
+	
+	<head>
+		<!--This script will ensure that the text in the templated script above makes it into the div-->
+		<script type = "text/template" id = "canvasesTemplate">
+			<%_.forEach(array, function (number) {%>
+				<div class = "canvasRow" style = "width: 1700px">
+					<div>
+						<span style = "font-size: 20px; float: left">Day <%= number %>:</span>
+						<span class = "yAxis" style = "width: 0px; height: 0px; display: inline"></span>
+						<span class = "spectroCanvasHolder" style = "display: inline-block">
+							<canvas class = "spectroCanvases" style = "background-color: white" height = "0px" width = "1440px"></canvas>
+						</span>
+					</div>
+					<span class = "buffer" style = "height: 0px; width: 0px"></span>
+					<div>
+						<span class = "axisBuffer" style = "height: 0px; width: 0px"></span>
+						<span class = "xAxis" style = "width: 0px; height: 0px"></span>
+					</div>
+					<span class = "gotoLinkHolder" style = "width: 0px; height: 0px"></span>
+					<span class = "slider" style = "width: 0px; height: 0px">
+					</span>
+				</div>
+			<%});%>
+			
+		</script>
+
+
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+    	<script src="http://d3js.org/d3.v3.min.js"></script>
+    	<script src="furtherjs.js"></script>
+    	<script src = "parsing.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
+    	
+	</head>
+
+
+	<body>
+		<h1>30 Day Analysis:</h1>
+		
+		<br>
+		
+		<p>
+			Showing 30 days worth of False Colour Spectrograms for Indices chosen on previous page between the following frequency range:
+		</p>
+		<span id = "furtherjsLower"></span>
+		<span id = "furtherjsUpper"></span>
+		
+		
+		<h3>False Colour Spectrograms begin below:</h3>
+
+		<div id = "containsAllCanvases">
+			<!-- Templated content goes in this div!-->
+		</div>
+
+		<script src = "furtherTemplate.js"></script>
+		
+
+		
+
+	</body>
+
+
+</html>

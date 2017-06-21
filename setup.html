@@ -1,0 +1,246 @@
+<!DOCTYPE >
+<html>
+    <title>Indices Selection -Sample data: UMBAKUMBA, Groote Eylandt,2014/01/25
+</title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
+        <!--<script src="lodash.js"></script>-->
+        <script src="templatePage.js"></script>
+        <script src="processing.js"></script>
+        <script type="text/template" id="controlPanelTemplate">
+            
+
+    <!-- The following divs are in the script tags to ensure they are right above the buttons-->
+        <div style = "width: 1440px">
+            <span style = "width: 0px; height: 100px"></span>
+            <span id = "buttonContainer">
+                <div>
+                    <h4>Options:</h4>
+                </div>
+                <div>
+
+                    <button type="button" id="render" class = "renderButton"> Render</button>
+                    <!--<button type = "button" id = "save">Save Configuration</button>-->
+                
+                    <!--<button type = "button" id = "load">Load Configuration</button>-->
+
+                    <button type = "button" id = "renorm">View Normalised Range</button>
+
+                    <button type = "button" id = "clear">Clear Canvas</button>
+                </div>
+            </span>
+        </div>
+
+
+
+        <br>
+        <br>
+
+
+        <div id = "titles">
+            <span id = "index">
+                Index:
+            </span>
+            <span id = "RGB">
+                RGB:
+            </span>
+            <span>
+                Transforms:
+            </span>
+
+                <span class = "spread">
+                        <div class = "spread">
+                            Default
+                        </div>
+                        <br>
+                        <div class = "spread">      
+                            <span class = "compress">
+                                Min:
+                            </span>
+                            <span class = "compress">
+                                Max:
+                            </span>
+                        </div>
+                </span>
+
+                <span class = "spreadLabels">
+                        <div class = "spreadLabels">
+                            Customised
+                        </div>
+                        <br>
+                        <div class = "spreadLabels">
+                            <span class = "customised">
+                                Min:
+                            </span>
+                            <span class = "customised">
+                                Max:
+                            </span>
+                        </div>
+                </span>
+
+        </div>
+
+        <!-- Iteratively put the user inputs here... -->
+
+        
+
+        <% _.forEach(falseColorIndices, function(fci) { %>
+            <div class = "rowSpace">
+
+            </div>
+
+            <div class="row" data-index-name="<%- fci.indexName %>">
+                <span class = "indices">
+                <%- fci.indexName%> -
+
+                </span>
+
+                <span>
+                    <input type="radio" name="<%- fci.indexName %>RadioGroup" class="red">
+                    <input type="radio" name="<%- fci.indexName %>RadioGroup" class="green">
+                    <input type="radio" name="<%- fci.indexName %>RadioGroup" class="blue">
+                </span>
+
+                <span>
+                    <label>
+                        <select class="transform" disabled>
+                            <% _.forEach(transforms, function(transform) { %>
+                                <option><%- transform %></option>
+                            <% }); %>
+                        </select>
+                    </label>
+                </span>
+
+                <span class = "MIN"></span>
+                <span class = "MAX"></span>
+
+                    <span class = "MINIMUMS">
+                        <input type="text" class="minimum" disabled>
+                        <!-- Norm min put here -->
+                    </span>
+
+                    <span class = "MAXIMUMS">
+                        <input type="text" class="maximum" disabled>
+                        <!-- Norm max put here -->
+                    </span>
+
+
+            </div>
+
+        <% }); %>
+    
+        </script>
+    </head>
+    <body>
+        <h2>Indices Selection -Sample data: BICKERTON, Groote Eylandt,2013/012/12</h2>
+        <p>Using the selection panel below, choose any combination of RGB indices, as well as the transforms and clamping done to them.</p>
+        <script src="processing.js"></script>
+        <!--
+<canvas id = "zerothLine"></canvas>
+<canvas id = "firstLine"></canvas>
+<canvas id = "secondLine"></canvas>
+<canvas id = "thirdLine"></canvas>
+<canvas id = "fourthLine"></canvas>
+<canvas id = "fifthLine"></canvas>
+<canvas id = "sixthLine"></canvas>
+<canvas id = "seventhLine"></canvas>
+
+<canvas id = "topLine"></canvas>
+<canvas id = "titleLine"></canvas>
+<canvas id = "titleLineTwo"></canvas>
+<canvas id = "bottomLine"></canvas>
+-->
+        <div>
+            <span id="yaxis"></span>
+            <span id="canvasHolder">
+                <canvas id="canvas"></canvas>
+            </span>
+            <span id="furtherAnalysis" style = "display: inline-block">
+                <form action="further.html">
+                    <strong>Further Analysis:</strong>
+                    <br>
+                    <input id = "viewChanges" type="checkbox">View frequency range here</input>
+                    <br>
+                    Lower Band:
+            <br>
+                    <select id="lowerBand">
+                        <option>0</option>
+                        <option>1000</option>
+                        <option>2000</option>
+                        <option>3000</option>
+                        <option>4000</option>
+                        <option>5000</option>
+                        <option>6000</option>
+                        <option>7000</option>
+                        <option>8000</option>
+                        <option>9000</option>
+                        <option>10000</option>
+                        <option>11000</option>
+                        <option>12000</option>
+                    </select>
+                    <br>
+                    <br>
+                    Upper Band:
+            <br>
+                    <select id="upperBand">
+                        <option>0</option>
+                        <option>1000</option>
+                        <option>2000</option>
+                        <option>3000</option>
+                        <option>4000</option>
+                        <option>5000</option>
+                        <option>6000</option>
+                        <option>7000</option>
+                        <option>8000</option>
+                        <option>9000</option>
+                        <option>10000</option>
+                        <option>11000</option>
+                        <option>12000</option>
+                    </select>
+                    <br>
+                    <br>
+                    <span style="width: 70px; height: 100px">
+                        <button style="height: 60px" type="submit">View 30 days</button>
+                    </span>
+                </form>
+            </span>
+        </div>
+        <div id = "xaxis"></div>
+        
+        <div id = "smallerCanvasHolder" style = "height: 0px; width: 1600px;">
+            <span id = "secondBuffer" style = "height: 0px; width: 0px; horizontal-align: left"></span>
+            <span id = "secondyAxis" style = "display: inline"></span>
+            <span style = "display: inline">
+                <canvas id = "smallerCanvas" style = "height: 0px; width: 1440px; background-color: white"></canvas>
+            </span>
+        </div>
+        <br>
+        <div id = "secondxAxis" style = "height: 0px; width: 1600px">
+            <!--<span style = "width: 100px; height: 0px"></span>-->
+            <!--<span id = "secondxAxis" style = "height: 0px; width: 0px"></span>-->
+        </div>
+        <br>
+        <div id = "sliderContainer">
+            <input id="navigationSlider" type="range" min="0" value="00" max="0" step="1" style="width:1440px"/>
+            <br/>
+            <a id="goToButton">Go to: 0</a>
+        </div>
+
+        <div id="bigContainer">
+            <span id="spacingFromLeft"></span>
+            <span id="controlPanel">
+            <!-- templated content goes here -->
+            </span>
+            <!--<div>
+                <span>Settings:</span>
+                <select id = "configuration">
+                    <option class = "configuration" > Do not Load/Save </option>
+                    <option class = "configuration" > Save Current Selection </option>
+                    <option class = "configuration" > Load Preset Options </option>
+                </select>
+            </div>-->
+        </div>
+    </body>
+</html>

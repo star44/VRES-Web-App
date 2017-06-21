@@ -1,0 +1,285 @@
+body{
+	background-color: darkgray;
+	font-family: Verdana;
+}
+
+h3{
+	font-family: Verdana;
+
+}
+
+p{
+	font-family: Verdana;
+}
+
+span{
+	display: inline-block;
+	text-align: center;
+	width: 90px;
+}
+
+.row{
+	width: 1200px;
+
+}
+
+.spread{
+	width: 180px;
+}
+
+.compress{
+	width: 70px;
+}
+
+.spreadLabels{
+	width: 250px;
+}
+
+#canvas{
+    height: 256px;
+    width: 1435px;
+    background-color: white;
+}
+
+#canvasHolder {
+	height: 256px;
+	width: 1435px;
+}
+
+#furtherAnalysis{
+	height: 256px;
+	width: 200px;
+	vertical-align: top;
+	background-color: gray;
+}
+
+#sliderContainer {
+	margin-left: 92px;
+}
+
+#xaxis {
+	margin-left: -28px;
+}
+	
+#options {
+	height: 100px;
+	width: 810px;
+}
+
+
+
+#yaxis{
+	width: 100px;
+	height: 255px;
+	margin-top: 120ppx;
+}
+
+
+#titles{
+	width: 1180px;
+}
+
+
+#appendSpread{
+	width: 360px;
+}
+
+
+#buttonContainer {
+height: 100px;
+width: 600px;
+background-color: gray;
+
+}
+
+#adjacentControl{
+	width: 700px;
+	height: 800px;
+}
+
+#indexButtons{
+	width: 1000px;
+	height: 800px;
+}
+
+#controlPanel{
+	width: 800px;
+	height: 600px;
+}
+
+#bigContainer{
+	width: 1200px;
+	height: 700px;
+}
+
+#spacingFromLeft{
+	width: 80px;
+	height: 700px;
+}
+
+#index{
+	width: 300px;
+}
+
+#RGB{
+	width: 70px;
+}
+
+
+.MINIMUMS{
+	display: inline-block;
+	width: 140px;
+}
+
+.MAXIMUMS{
+	display: inline-block;
+	width: 140px;
+}
+
+.customised{
+	display: inline-block;
+	width: 120px;
+}
+
+.normalised{
+	display: inline-block;
+	width: 90px;
+}
+
+.minimum{
+	width: 100px;
+}
+
+.maximum{
+	width: 100px;
+}
+
+.rowSpace{
+	width: 600px;
+	height: 40px;
+}
+
+.indices{
+	width: 300px;
+}
+
+#smallSpace{ 
+	width: 100px;
+	height: 100px;
+}
+
+#buttonAdj{
+	width: 800px;
+	height: 100px;
+
+}
+
+#zerothLine{
+	height: 610px;
+	width: 3px;
+	position: absolute;
+	left: 100px;
+	top: 500px;
+	background-color: black;
+}
+
+#firstLine{
+	height: 610px;
+	width: 3px;
+	position: absolute;
+	left: 220px;
+	top: 500px;
+	background-color: black;
+}
+
+#secondLine{
+	height: 610px;
+	width: 3px;
+	position: absolute;
+	left: 290px;
+	top: 500px;
+	background-color: black;
+}
+
+#thirdLine{
+	height: 660px;
+	width: 3px;
+	position: absolute;
+	left: 410px;
+	top: 450px;
+	background-color: black;
+}
+
+#fourthLine{
+	height: 610px;
+	width: 3px;
+	position: absolute;
+	left: 490px;
+	top: 500px;
+	background-color: black;
+}
+
+#fifthLine{
+	height: 660px;
+	width: 3px;
+	position: absolute;
+	left: 580px;
+	top: 450px;
+	background-color: black;
+}
+
+#sixthLine{
+	height: 610px;
+	width: 3px;
+	position: absolute;
+	left: 720px;
+	top: 500px;
+	background-color: black;
+}
+
+#seventhLine{
+	height: 660px;
+	width: 3px;
+	position: absolute;
+	left: 870px;
+	top: 450px;
+	background-color: black;
+}
+
+#titleLine{
+	height: 3px;
+	width: 770px;
+	position: absolute;
+	left: 100px;
+	top: 500px;
+	background-color: black;
+}
+
+#titleLineTwo{
+	height: 3px;
+	width: 770px;
+	position: absolute;
+	left: 100px;
+	top: 540px;
+	background-color: black;
+}
+
+#topLine{
+	height: 3px;
+	width: 460px;
+	position: absolute;
+	left: 410px;
+	top: 450px;
+	background-color: black;
+}
+
+#bottomLine{
+	height: 3px;
+	width: 770px;
+	position: absolute;
+	left: 100px;
+	top: 1110px;
+	background-color: black;
+}
+
+
